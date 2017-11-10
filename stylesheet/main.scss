@@ -1,0 +1,63 @@
+@import "vendor/normalize";
+@import "grid/grid";
+
+//Variable
+$menu-color: #252424;
+
+
+html{
+  background: cadetblue;
+}
+* {
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+ol, ul {
+  list-style: none;
+}
+a {
+  text-decoration: none;
+  color: $menu-color;
+}
+img,
+audio,
+video,
+canvas {
+  max-width: 100%;
+  user-select: none;
+  touch-callout: none;
+  pointer-events: none;
+}
+img {
+  height: auto;
+}
+
+
+.nav-section nav{
+  background: rgba(0,0,0,.4);
+  display: block;
+  padding: 20px 0;
+}
+.logo{
+  float: left;
+  margin-left: 15px;
+}
+#nav-menu{
+  text-align: right;
+  li{
+    display: inline-block;
+    margin-right: 30px;
+    a{
+      color: $menu-color;
+      padding-bottom: 2px;
+      transition: all 0.2s ease-in;
+      &:hover{
+        color: #fff;
+        border-bottom: 2px solid rgba(255,255,255,.7);
+      }
+    }
+  }
+
+}
