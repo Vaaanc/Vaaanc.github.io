@@ -12,12 +12,12 @@
   <body>
     <div class="site-wrapper">
       <!-- Full Page Hero Start -->
-      <section class="hero">
+      <section class="hero" id="hero">
         <!-- Header nav Start -->
         <div class="nav-section">
           <nav>
             <div class="logo">
-              <a href="logo here">LOGO</a>
+              <a href="#">LOGO</a>
             </div>
             <ul id = "nav-menu">
               <li class = "active">
@@ -36,8 +36,98 @@
           </nav>
         </div>
         <!-- Header nav End -->
+        <div id="arrow-left" class="arrow">
+
+        </div>
+        <div id="hero-images-wrap">
+          <div class="image hero-image-1">
+            <span>Image One</span>
+          </div>
+          <div class="image hero-image-2">
+
+            <span>Image Two</span>
+          </div>
+          <div class="image hero-image-3  ">
+
+            <span>Image Three</span>
+          </div>
+        </div>
+        <div id="arrow-right" class="arrow">
+
+        </div>
       </section>
       <!-- Full Page Hero End -->
+      <div class="me">
+
+      </div>
     </div>
+
+
+    <script>
+
+    document.addEventListener("DOMContentLoaded", function(event) {
+  //do work
+});
+    var slideIndex = 0;
+    carousel();
+      function carousel() {
+        var i;
+        var x = document.getElementsByClassName("image");
+
+        for (i = 0; i < x.length; i++) {
+
+        //  x[i].style.display = "none";
+          x[i].style.opacity = "0";
+        }
+        slideIndex++;
+        if (slideIndex > x.length) {
+          slideIndex = 1
+
+        }
+        x[slideIndex-1].style.opacity = "1";
+        //x[slideIndex-1].style.display = "block";
+        setTimeout(carousel, 8000); // Change image every 2 seconds
+      }
+
+
+    var lFollowX = 0,
+    lFollowY = 0,
+    x = 0,
+    y = 0,
+    friction = 1 / 30;
+
+    function moveBackground() {
+
+
+    }
+
+    document.getElementById("hero-images-wrap").addEventListener("mousemove",function(e){
+
+      var x2 = document.getElementsByClassName("image");
+      x += (lFollowX - x) * friction;
+      y += (lFollowY - y) * friction;
+
+
+
+      translate = 'translate(' + x + 'px, ' + y + 'px) scale(1.1)';
+      //x2[0].style.transform = translate;
+
+      document.getElementById('hero-images-wrap').style.transform = translate;
+
+      //$('.bg').css({
+        //'-webit-transform': translate,
+        //'-moz-transform': translate,
+        //'transform': translate
+      //});
+
+      window.requestAnimationFrame(moveBackground);
+      var clientHeight = document.getElementById('hero-images-wrap').offsetHeight;
+      var clientWidth = document.getElementById('hero-images-wrap').offsetWidth;
+      var lMouseX = Math.max(-100, Math.min(100, clientWidth / 2 - e.clientX));
+      var lMouseY = Math.max(-100, Math.min(100, clientHeight / 2 - e.clientY));
+      lFollowX = (20 * lMouseX) / 100; // 100 : 12 = lMouxeX : lFollow
+      lFollowY = (10 * lMouseY) / 100;
+    });
+    </script>
   </body>
 </html>
