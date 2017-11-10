@@ -2,14 +2,17 @@
 @import "grid/grid";
 
 //Variable
-$menu-color: #252424;
+$menu-color: ghostwhite;
+$menu-color-hover: rgba(230, 78, 78, .8);
 
 
 html{
-  background: cadetblue;
+  background: ghostwhite;
 }
 body{
   overflow-x: hidden;
+
+  font-family: 'Roboto', sans-serif;
 }
 * {
   font-weight: normal;
@@ -38,12 +41,11 @@ img {
 }
 
 
-//===============START==================
-
+//===============NAV/HERO START==================
 .hero{
   height: 100vh;
   width: 100%;
-      overflow: hidden; 
+      overflow: hidden;
 }
 
 .nav-section nav{
@@ -62,6 +64,11 @@ img {
 }
 #nav-menu{
   text-align: right;
+  .active{
+    a{
+      border-bottom: 2px solid $menu-color-hover;
+    }
+  }
   li{
     display: inline-block;
     margin-right: 30px;
@@ -69,11 +76,17 @@ img {
       color: $menu-color;
       padding-bottom: 2px;
       transition: all 0.2s ease-in;
+      letter-spacing: 1px;
+    }
+  }
+  li:not(.active){
+    a{
       &:hover{
-        color: #fff;
-        border-bottom: 2px solid rgba(255,255,255,.7);
+        color: $menu-color-hover;
+        border-bottom: 2px solid $menu-color;
       }
     }
+
   }
 }
 
@@ -107,9 +120,12 @@ img {
 .hero-image-3{
   background-image:url("../images/hero-image-3.jpeg");
 }
+//===============Nav/HERO END==================
 
 
-.me{
-  height: 500px;
+//==============ABOUT ME START+================
+.About-me{
+  font-family: 'museo-slab,Helvetica Neue,Helvetica,Arial,sans-serif';
+  height: 400px;
   background-color: #724f77;
 }

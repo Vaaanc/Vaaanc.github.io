@@ -433,10 +433,11 @@ template {
   padding: 0; }
 
 html {
-  background: cadetblue; }
+  background: ghostwhite; }
 
 body {
-  overflow-x: hidden; }
+  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif; }
 
 * {
   font-weight: normal;
@@ -449,7 +450,7 @@ ol, ul {
 
 a {
   text-decoration: none;
-  color: #252424; }
+  color: ghostwhite; }
 
 img,
 audio,
@@ -484,16 +485,19 @@ img {
 
 #nav-menu {
   text-align: right; }
+  #nav-menu .active a {
+    border-bottom: 2px solid rgba(230, 78, 78, 0.8); }
   #nav-menu li {
     display: inline-block;
     margin-right: 30px; }
     #nav-menu li a {
-      color: #252424;
+      color: ghostwhite;
       padding-bottom: 2px;
-      transition: all 0.2s ease-in; }
-      #nav-menu li a:hover {
-        color: #fff;
-        border-bottom: 2px solid rgba(255, 255, 255, 0.7); }
+      transition: all 0.2s ease-in;
+      letter-spacing: 1px; }
+  #nav-menu li:not(.active) a:hover {
+    color: rgba(230, 78, 78, 0.8);
+    border-bottom: 2px solid ghostwhite; }
 
 #hero-images-wrap {
   width: 100%;
@@ -525,8 +529,9 @@ img {
 .hero-image-3 {
   background-image: url("../images/hero-image-3.jpeg"); }
 
-.me {
-  height: 500px;
+.About-me {
+  font-family: 'museo-slab,Helvetica Neue,Helvetica,Arial,sans-serif';
+  height: 400px;
   background-color: #724f77; }
 
 /*# sourceMappingURL=main.css.map */
