@@ -6,128 +6,89 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" type="text/css" href="stylesheet/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans|Roboto:500" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600|Roboto" rel="stylesheet">
+    <script src="scripts/smooth-scroll.js"></script>
     <title>Home</title>
   </head>
-  <body>
+  <body class="">
     <div class="site-wrapper">
       <!-- Full Page Hero Start -->
-      <section class="hero" id="hero">
+      <section class="hero section" id="Home">
         <!-- Header nav Start -->
         <div class="nav-section">
-          <nav>
+          <nav id="nav">
             <div class="logo">
-              <a href="#">LOGO</a>
+              <a href="#Top" class="nav-link">LOGO</a>
             </div>
-            <ul id = "nav-menu">
+            <ul id = "nav-menu" class="sm-hide">
               <li class = "active">
-                <a href="#">Home</a>
+                <a href="#Home" class="nav-link">Home</a>
+              </li>
+              <li>
+                <a href="#About" class="nav-link">About</a>
               </li>
               <li class = "">
-                <a href="#">About Me</a>
+                <a href="#Works" class="nav-link">Works</a>
               </li>
               <li class = "">
-                <a href="#">Works</a>
-              </li>
-              <li class = "">
-                <a href="#">Contact</a>
+                <a href="#Contact" class="nav-link">Contact</a>
               </li>
             </ul>
+            
+            <!-- TOGGLE MOBILE VIEW START -->
+            <div id ="toggle" class=" sm-show">
+              <div id="toggle-icon">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+            </div>
+            
+            <!-- TOGGLE MOBILE VIEW END -->  
           </nav>
+          <div class="mobile-view sm-show" aria-hidden="true">
+            <ul id = "mobile-nav-menu">
+              <li class = "active">
+                <a href="#Home" class="nav-link">Home</a>
+              </li>
+              <li class = "">
+                <a href="#About" class="nav-link">About</a>
+              </li>
+              <li class = "">
+                <a href="#Works" class="nav-link">Works</a>
+              </li>
+              <li class = "">
+                <a href="#Contact" class="nav-link">Contact</a>
+              </li>
+            </ul>
+          </div>
         </div>
         <!-- Header nav End -->
-        <div id="arrow-left" class="arrow">
-
+        <div class="hero-text-wrap">
+          <div class="hero-text">
+            <h1>Hello, I'm <span class="highlight">Van  </span>.
+              <br/>An Aspiring  <span class="typewrite" data-period="1500" 
+              data-type='[ "Web Developer...", "Software Engineer..."]'></span></h1>
+          </div>
         </div>
         <div id="hero-images-wrap">
           <div class="image hero-image-1">
-            <span>Image One</span>
           </div>
           <div class="image hero-image-2">
-
-            <span>Image Two</span>
           </div>
           <div class="image hero-image-3  ">
-
-            <span>Image Three</span>
           </div>
-        </div>
-        <div id="arrow-right" class="arrow">
-
         </div>
       </section>
       <!-- Full Page Hero End -->
-      <div class="About-me">
+      <div id="About" class="section">
 
       </div>
     </div>
 
 
-    <script>
-
-    document.addEventListener("DOMContentLoaded", function(event) {
-  //do work
-});
-    var slideIndex = 0;
-    carousel();
-      function carousel() {
-        var i;
-        var x = document.getElementsByClassName("image");
-
-        for (i = 0; i < x.length; i++) {
-
-        //  x[i].style.display = "none";
-          x[i].style.opacity = "0";
-        }
-        slideIndex++;
-        if (slideIndex > x.length) {
-          slideIndex = 1
-
-        }
-        x[slideIndex-1].style.opacity = "1";
-        //x[slideIndex-1].style.display = "block";
-        setTimeout(carousel, 8000); // Change image every 2 seconds
-      }
-
-
-    var lFollowX = 0,
-    lFollowY = 0,
-    x = 0,
-    y = 0,
-    friction = 1 / 30;
-
-    function moveBackground() {
-
-
-    }
-
-    document.getElementById("hero-images-wrap").addEventListener("mousemove",function(e){
-
-      var x2 = document.getElementsByClassName("image");
-      x += (lFollowX - x) * friction;
-      y += (lFollowY - y) * friction;
-
-
-
-      translate = 'translate(' + x + 'px, ' + y + 'px) scale(1.1)';
-      //x2[0].style.transform = translate;
-
-      document.getElementById('hero-images-wrap').style.transform = translate;
-
-      //$('.bg').css({
-        //'-webit-transform': translate,
-        //'-moz-transform': translate,
-        //'transform': translate
-      //});
-
-      window.requestAnimationFrame(moveBackground);
-      var clientHeight = document.getElementById('hero-images-wrap').offsetHeight;
-      var clientWidth = document.getElementById('hero-images-wrap').offsetWidth;
-      var lMouseX = Math.max(-100, Math.min(100, clientWidth / 2 - e.clientX));
-      var lMouseY = Math.max(-100, Math.min(100, clientHeight / 2 - e.clientY));
-      lFollowX = (20 * lMouseX) / 100; // 100 : 12 = lMouxeX : lFollow
-      lFollowY = (10 * lMouseY) / 100;
-    });
+    <script async="" src="scripts/slideshow-moving.js">
     </script>
   </body>
 </html>

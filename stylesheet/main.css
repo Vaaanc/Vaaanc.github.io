@@ -437,7 +437,7 @@ html {
 
 body {
   overflow-x: hidden;
-  font-family: 'Roboto', sans-serif; }
+  font-family: 'Raleway', sans-serif; }
 
 * {
   font-weight: normal;
@@ -458,7 +458,6 @@ video,
 canvas {
   max-width: 100%;
   user-select: none;
-  touch-callout: none;
   pointer-events: none; }
 
 img {
@@ -477,7 +476,86 @@ img {
   top: 0;
   left: 0;
   right: 0;
-  z-index: 1; }
+  z-index: 9999; }
+
+.overlay {
+  overflow: hidden; }
+
+.mobile-view {
+  height: 100%;
+  width: 100%;
+  padding: 50% 10% 0 10%;
+  transition: all 0.5s;
+  opacity: 0;
+  text-align: center;
+  position: fixed;
+  right: 0;
+  background: #000000a3;
+  z-index: 2;
+  display: none;
+  z-index: 0; }
+  .mobile-view #mobile-nav-menu li:not(:last-child) {
+    margin-bottom: 10px; }
+  .mobile-view.open {
+    opacity: 1;
+    z-index: 9998; }
+
+#toggle {
+  position: absolute;
+  right: 3%;
+  height: 30px;
+  width: 30px;
+  top: 25%;
+  cursor: pointer; }
+
+#toggle-icon span {
+  display: block;
+  position: absolute;
+  height: 4px;
+  width: 30px;
+  background: white;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out; }
+
+#toggle-icon span:nth-child(1) {
+  top: 0px; }
+
+#toggle-icon span:nth-child(2), #toggle-icon span:nth-child(3) {
+  top: 13px; }
+
+#toggle-icon span:nth-child(4) {
+  top: 26px; }
+
+#toggle-icon.open span:nth-child(1) {
+  top: 18px;
+  width: 0%;
+  left: 50%; }
+
+#toggle-icon.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg); }
+
+#toggle-icon.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg); }
+
+#toggle-icon.open span:nth-child(4) {
+  top: 18px;
+  width: 0%;
+  left: 50%; }
 
 .logo {
   float: left;
@@ -485,8 +563,6 @@ img {
 
 #nav-menu {
   text-align: right; }
-  #nav-menu .active a {
-    border-bottom: 2px solid rgba(230, 78, 78, 0.8); }
   #nav-menu li {
     display: inline-block;
     margin-right: 30px; }
@@ -495,15 +571,44 @@ img {
       padding-bottom: 2px;
       transition: all 0.2s ease-in;
       letter-spacing: 1px; }
-  #nav-menu li:not(.active) a:hover {
-    color: rgba(230, 78, 78, 0.8);
-    border-bottom: 2px solid ghostwhite; }
+      #nav-menu li a:hover:not(.active) {
+        color: rgba(230, 78, 78, 0.8);
+        border-bottom: 2px solid ghostwhite; }
+    #nav-menu li .active {
+      border-bottom: 2px solid rgba(230, 78, 78, 0.8); }
+
+.hero-text-wrap {
+  position: absolute;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  display: table; }
+
+.hero-text {
+  display: table-cell;
+  vertical-align: middle;
+  z-index: 1;
+  padding: 0 7%;
+  color: #fff;
+  position: relative;
+  padding-bottom: 10%;
+  word-spacing: 3px;
+  text-align: center; }
+  .hero-text .highlight {
+    font-weight: 600;
+    color: #04C2C9; }
+  .hero-text h1 {
+    font-size: 2.5em; }
+  .hero-text h4 {
+    font-size: 1.5em; }
 
 #hero-images-wrap {
   width: 100%;
   height: 100%; }
 
 .image {
+  background-color: rgba(83, 51, 22, 0.3);
+  background-blend-mode: multiply;
   overflow: hidden;
   opacity: 0;
   transition: opacity 1s ease-in-out;
@@ -529,9 +634,27 @@ img {
 .hero-image-3 {
   background-image: url("../images/hero-image-3.jpeg"); }
 
-.About-me {
+#About {
   font-family: 'museo-slab,Helvetica Neue,Helvetica,Arial,sans-serif';
   height: 400px;
   background-color: #724f77; }
+
+@media only screen and (max-width: 600px) {
+  .sm-show {
+    display: block; }
+
+  #mobile-nav-menu .nav-link {
+    font-size: 2rem; }
+
+  .sm-hide {
+    display: none; }
+
+  .hero-text {
+    padding: 0 5%; }
+    .hero-text h1 {
+      font-size: 2em; } }
+@media only screen and (min-width: 601px) {
+  .sm-show {
+    display: none; } }
 
 /*# sourceMappingURL=main.css.map */
