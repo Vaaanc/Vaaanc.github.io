@@ -1,13 +1,22 @@
+.container {
+  max-width: 970px;
+  margin: auto;
+  width: 92%; }
+
 .grid-1,
 .grid-2,
 .grid-3,
 .grid-4,
 .grid-5,
+.grid-quarter,
 .grid-6 {
   float: left;
   padding: 0 0.606060606061% 1rem; }
 
 @media only screen and (max-width: 40em) {
+  .grid-quarter {
+    width: 50%; }
+
   .grid-1,
   .grid-2,
   .grid-3,

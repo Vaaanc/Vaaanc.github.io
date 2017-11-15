@@ -1,3 +1,5 @@
+/// <reference path="index.d.ts" />
+
 //CAROUSEL START
 var slideIndex = 0;
 carousel();
@@ -58,11 +60,34 @@ moveBackground();
 //MOVING BACKGROUND END
 
 //SMOOTH SCROLL START
-var scroll = new SmoothScroll('a[href*="#"]',{
-  easing: 'easeInQuint',
-  offset: document.getElementById('nav').offsetHeight,
-  speed: 750
-});
+var options = { speed: 750, easing: 'easeInQuint', offset:document.getElementById('nav').offsetHeight  };
+var selector;
+var scroll = new SmoothScroll(selector,options);
+
+var smoothScrollWithoutHash = function (selector, settings) {
+	/**
+	 * If smooth scroll element clicked, animate scroll
+	 */
+	var clickHandler = function (event) {
+		var toggle = event.target.closest( selector );
+		if ( !toggle || toggle.tagName.toLowerCase() !== 'a' ) return;
+		var anchor = document.querySelector( toggle.hash );
+		if ( !anchor ) return;
+
+		event.preventDefault(); // Prevent default click event
+    scroll.animateScroll( anchor, toggle, settings || {} ); // Animate scroll
+    toggleClass =  document.getElementById("toggle-icon");
+    mobileNavToggle = document.getElementsByClassName("mobile-view")[0];
+    toggleClass.classList.remove("open");
+    mobileNavToggle.classList.remove("open");
+    document.body.classList.remove("overlay");
+	};
+
+	window.addEventListener('click', clickHandler, false );
+};
+
+// Run our function
+smoothScrollWithoutHash( 'a[href*="#"]' );
 //SMOOTH SCROLL END
 
 //TOOGLE CLICK
@@ -77,7 +102,7 @@ function toggle(){
 
 
 //TYPEWRITER EFFECT START
-var TxtType = function(el, toRotate, period) {
+var TxtRotate = function(el, toRotate, period) {
   this.toRotate = toRotate;
   this.el = el;
   this.loopNum = 0;
@@ -87,50 +112,49 @@ var TxtType = function(el, toRotate, period) {
   this.isDeleting = false;
 };
 
-TxtType.prototype.tick = function() {
+TxtRotate.prototype.tick = function() {
   var i = this.loopNum % this.toRotate.length;
   var fullTxt = this.toRotate[i];
 
   if (this.isDeleting) {
-  this.txt = fullTxt.substring(0, this.txt.length - 1);
+    this.txt = fullTxt.substring(0, this.txt.length - 1);
   } else {
-  this.txt = fullTxt.substring(0, this.txt.length + 1);
+    this.txt = fullTxt.substring(0, this.txt.length + 1);
   }
 
   this.el.innerHTML = '<span class="wrap">'+this.txt+'</span>';
 
   var that = this;
-  var delta = 200 - Math.random() * 100;
+  var delta = 300 - Math.random() * 100;
 
   if (this.isDeleting) { delta /= 2; }
 
   if (!this.isDeleting && this.txt === fullTxt) {
-  delta = this.period;
-  this.isDeleting = true;
+    delta = this.period;
+    this.isDeleting = true;
   } else if (this.isDeleting && this.txt === '') {
-  this.isDeleting = false;
-  this.loopNum++;
-  delta = 500;
+    this.isDeleting = false;
+    this.loopNum++;
+    delta = 500;
   }
 
   setTimeout(function() {
-  that.tick();
+    that.tick();
   }, delta);
 };
 
 window.onload = function() {
-  var elements = document.getElementsByClassName('typewrite');
+  var elements = document.getElementsByClassName('txt-rotate');
   for (var i=0; i<elements.length; i++) {
-      var toRotate = elements[i].getAttribute('data-type');
-      var period = elements[i].getAttribute('data-period');
-      if (toRotate) {
-        new TxtType(elements[i], JSON.parse(toRotate), period);
-      }
+    var toRotate = elements[i].getAttribute('data-rotate');
+    var period = elements[i].getAttribute('data-period');
+    if (toRotate) {
+      new TxtRotate(elements[i], JSON.parse(toRotate), period);
+    }
   }
-  // INJECT CSS
   var css = document.createElement("style");
   css.type = "text/css";
-  css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+  css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #fff }";
   document.body.appendChild(css);
 };
 //TYPEWRITER EFFECT END
@@ -149,12 +173,35 @@ window.onload = function() {
 
   window.onscroll = function() {
     var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
-    
     for (i in sections) {
-      if (sections[i] <= scrollPosition + document.getElementById('nav').offsetHeight ) {
+      if (sections[i] <= scrollPosition + $('#nav').innerHeight()) {
         document.querySelector('.active').setAttribute('class', ' ');
         document.querySelector('a[href*=' + i + ']').setAttribute('class', 'active');
       }
     }
   };
 })();
+
+//Scroll Add/Remove Class
+function onScroll(event){
+  $('.animate').each(function(){
+    var bottom_object = $(this).offset().top + $(this).height();
+    var bottom_window = $(window).scrollTop() + $(window).height();
+    if(bottom_window > bottom_object){
+      $(this).css({'opacity':'1','transform':'translateY(0) scale(1)'});
+    } 
+  });
+
+  $('.octagon').each(function(i){
+    var bottom_object = $(this).offset().top + $(this).height();
+    var bottom_window = $(window).scrollTop() + $(window).height();
+    
+    var row = $(this);
+    if(bottom_window > bottom_object){
+      setTimeout(function() {
+        row.addClass('flip');
+      }, 150*i);
+    } 
+  });
+}
+$(document).on("scroll", onScroll);

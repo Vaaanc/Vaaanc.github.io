@@ -8,12 +8,18 @@ $medium-up: "#{$screen} and (min-width: 40em)";
 // Medium Only - min-width 640px and max-width 1024px
 $medium-only: "#{$screen} and (min-width: 40.063em) and (max-width: 64em)";
 
+.container{
+  max-width: 970px;
+  margin: auto;
+  width: 92%;
+}
 
 .grid-1,
 .grid-2,
 .grid-3,
 .grid-4,
 .grid-5,
+.grid-quarter,
 .grid-6 {
   float: left;
   padding: 0 0.606060606061% 1rem;
@@ -22,6 +28,9 @@ $medium-only: "#{$screen} and (min-width: 40.063em) and (max-width: 64em)";
 // Small Only
 @media #{$small-only} {
 
+  .grid-quarter{
+    width: 50%;
+  }
   .grid-1,
   .grid-2,
   .grid-3,

@@ -478,7 +478,9 @@
 				event.preventDefault();
 				hashChangeHandler();
 			}
+			return false;
 
+			
 		};
 
 		/**

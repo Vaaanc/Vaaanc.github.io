@@ -6,8 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <link rel="stylesheet" type="text/css" href="stylesheet/main.css">
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600|Roboto" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:400,600" rel="stylesheet">
     <script src="scripts/smooth-scroll.js"></script>
+    <script src="scripts/jquery-3.2.1.min.js"></script>
     <title>Home</title>
   </head>
   <body class="">
@@ -22,10 +23,13 @@
             </div>
             <ul id = "nav-menu" class="sm-hide">
               <li class = "active">
-                <a href="#Home" class="nav-link">Home</a>
+                <a data-scroll href="#Home" class="nav-link">Home</a>
               </li>
               <li>
-                <a href="#About" class="nav-link">About</a>
+                <a data-scroll href="#About" class="nav-link">About</a>
+              </li>
+              <li>
+                <a data-scroll href="#Skills" class="nav-link">Skills</a>
               </li>
               <li class = "">
                 <a href="#Works" class="nav-link">Works</a>
@@ -45,31 +49,37 @@
               </div>
             </div>
             
-            <!-- TOGGLE MOBILE VIEW END -->  
+            <!-- TOGGLE MOBILE VIEW END -->   
           </nav>
           <div class="mobile-view sm-show" aria-hidden="true">
-            <ul id = "mobile-nav-menu">
-              <li class = "active">
-                <a href="#Home" class="nav-link">Home</a>
-              </li>
-              <li class = "">
-                <a href="#About" class="nav-link">About</a>
-              </li>
-              <li class = "">
-                <a href="#Works" class="nav-link">Works</a>
-              </li>
-              <li class = "">
-                <a href="#Contact" class="nav-link">Contact</a>
-              </li>
-            </ul>
-          </div>
+              <ul id = "mobile-nav-menu">
+                <li class = "active">
+                  <a href="#Home" class="nav-link">Home</a>
+                </li>
+                <li class = "">
+                  <a href="#About" class="nav-link">About</a>
+                </li>
+                <li class = "">
+                    <a href="#Skills" class="nav-link">Skills</a>
+                  </li>
+                <li class = "">
+                  <a href="#Works" class="nav-link">Works</a>
+                </li>
+                <li class = "">
+                  <a href="#Contact" class="nav-link">Contact</a>
+                </li>
+              </ul>
+            </div>
         </div>
         <!-- Header nav End -->
         <div class="hero-text-wrap">
           <div class="hero-text">
-            <h1>Hello, I'm <span class="highlight">Van  </span>.
-              <br/>An Aspiring  <span class="typewrite" data-period="1500" 
-              data-type='[ "Web Developer...", "Software Engineer..."]'></span></h1>
+            <h1>Hello, I'm <span class="highlight">Van</span>.
+              <br/>A <span class="txt-rotate" data-period="750"
+              data-rotate='[ "Web Developer..", "Software Engineer.." ]'></span></h1>
+              <div class="button">
+                <a href="#About">About Me</a>
+              </div>
           </div>
         </div>
         <div id="hero-images-wrap">
@@ -82,13 +92,55 @@
         </div>
       </section>
       <!-- Full Page Hero End -->
-      <div id="About" class="section">
+      <section class="About">
+        <div id="About" class="section">
+          <div class="container">
+            <!-- About Me -->
+            <div class="row">
+              <div class="grid-full center ">
+                <h1 class ="animate">ABOUT<div class="underline animate"></div></h1>
+                
+                <p class ="animate sub-label"><!--I'm an Information of Technology graduate from the Philippines
+                  that is hoping to be a better programmer as time goes by.-->
 
-      </div>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque aliquam tempor libero,
+                   eget ornare ipsum blandit in. Vestibulum scelerisque diam nec urna tempor,
+                    quis ornare purus venenatis. Etiam sodales dui facilisis, suscipit leo quis,
+                     dictum dolor. Nunc ultrices, velit in rhoncus tincidunt, lacus arcu dapibus nisi,
+                      non pharetra lacus arcu nec magna. Quisque sed sodales lorem.
+                </p>
+              </div>
+            </div>
+            <!-- Octagon -->
+            <div class="row">
+              <div class="grid-quarter">
+                <div class="octagon"></div>
+                <div class="label">Code</div>
+                <p class="sub-label text-center">Careful attention to detail and an obsession with clean, 100% functioning code</p>
+              </div>
+              <div class="grid-quarter">
+                <div class="octagon"></div>
+                <div class="label">Responsive</div>
+                <p class="sub-label text-center">Every website will work on any device, from handheld device to personal computer</p>
+              </div>
+              <div class="grid-quarter">
+                <div class="octagon"></div>
+                <div class="label">Simple</div>
+                <p class="sub-label text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+              <div class="grid-quarter">
+                <div class="octagon"></div>
+                <div class="label">Interactive</div>
+                <p class="sub-label text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
     </div>
 
 
-    <script async="" src="scripts/slideshow-moving.js">
-    </script>
+    <script src="scripts/slideshow-moving.js"></script>
   </body>
 </html>
