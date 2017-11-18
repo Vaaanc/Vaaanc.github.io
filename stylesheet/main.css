@@ -389,63 +389,201 @@ template {
 [hidden] {
   display: none; }
 
-.container {
-  max-width: 970px;
-  margin: auto;
-  width: 92%; }
+html,
+body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  font-size: 100%; }
 
-.grid-1,
-.grid-2,
-.grid-3,
-.grid-4,
-.grid-5,
-.grid-quarter,
-.grid-6 {
-  float: left;
-  padding: 0 0.606060606061% 1rem; }
+* {
+  font-family: "Raleway", sans-serif;
+  line-height: 1.5; }
 
-@media only screen and (max-width: 40em) {
-  .grid-quarter {
-    width: 50%; }
+h1 {
+  font-size: 2.5rem; }
 
-  .grid-1,
-  .grid-2,
-  .grid-3,
-  .grid-4,
-  .grid-5,
-  .grid-6 {
-    width: 100%; } }
-@media only screen and (min-width: 40em) {
-  .grid-1 {
-    width: 16.66667%; }
+h2 {
+  font-size: 2rem; }
 
-  .grid-quarter {
-    width: 23.78788%; }
+h3 {
+  font-size: 1.375rem; }
 
-  .grid-2 {
-    width: 33.33333%; }
+h4 {
+  font-size: 1.125rem; }
 
-  .grid-3,
-  .grid-half {
-    width: 50%; }
+h5 {
+  font-size: 1rem; }
 
-  .grid-4 {
-    width: 66.66667%; }
+h6 {
+  font-size: 0.875rem; }
 
-  .grid-5 {
-    width: 83.33333%; }
+p {
+  font-size: 1.125rem;
+  font-weight: 200;
+  line-height: 1.8; }
 
-  .grid-6,
-  .grid-full {
-    width: 100%; } }
-.row.collapse {
-  padding: 0; }
+.font-light {
+  font-weight: 300; }
 
-.text-center {
-  text-align: center; }
+.font-regular {
+  font-weight: 400; }
+
+.font-heavy {
+  font-weight: 700; }
+
+.left {
+  text-align: left; }
+
+.right {
+  text-align: right; }
 
 .center {
-  padding: 2rem 0; }
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto; }
+
+.justify {
+  text-align: justify; }
+
+.hidden-sm {
+  display: none; }
+
+.container {
+  width: 92%;
+  margin-left: auto;
+  margin-right: auto; }
+  @media only screen and (min-width: 33.75em) {
+    .container {
+      width: 90%; } }
+  @media only screen and (min-width: 60em) {
+    .container {
+      width: 85%;
+      max-width: 60rem; } }
+
+.row {
+  position: relative;
+  width: 100%; }
+
+.row [class^="col"] {
+  float: left;
+  margin: 0.5rem 2%;
+  min-height: 0.125rem; }
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+  width: 96%; }
+
+.col-1-sm {
+  width: 4.3333333333%; }
+
+.col-2-sm {
+  width: 12.6666666667%; }
+
+.col-3-sm {
+  width: 21%; }
+
+.col-4-sm {
+  width: 29.3333333333%; }
+
+.col-5-sm {
+  width: 37.6666666667%; }
+
+.col-6-sm {
+  width: 46%; }
+
+.col-7-sm {
+  width: 54.3333333333%; }
+
+.col-8-sm {
+  width: 62.6666666667%; }
+
+.col-9-sm {
+  width: 71%; }
+
+.col-10-sm {
+  width: 79.3333333333%; }
+
+.col-11-sm {
+  width: 87.6666666667%; }
+
+.col-12-sm {
+  width: 96%; }
+
+@media only screen and (min-width: 45em) {
+  .col-1 {
+    width: 4.3333333333%; }
+
+  .col-2 {
+    width: 12.6666666667%; }
+
+  .col-3 {
+    width: 21%; }
+
+  .col-4 {
+    width: 29.3333333333%; }
+
+  .col-5 {
+    width: 37.6666666667%; }
+
+  .col-6 {
+    width: 46%; }
+
+  .col-7 {
+    width: 54.3333333333%; }
+
+  .col-8 {
+    width: 62.6666666667%; }
+
+  .col-9 {
+    width: 71%; }
+
+  .col-10 {
+    width: 79.3333333333%; }
+
+  .col-11 {
+    width: 87.6666666667%; }
+
+  .col-12 {
+    width: 96%; }
+
+  .hidden-sm {
+    display: block; } }
+@-webkit-keyframes fill-bar {
+  0% {
+    width: 0; }
+  100% {
+    visibility: visible; } }
+@-moz-keyframes fill-bar {
+  0% {
+    width: 0; }
+  100% {
+    visibility: visible; } }
+@keyframes fill-bar {
+  0% {
+    width: 0; }
+  100% {
+    visibility: visible; } }
+.align-center {
+  text-align: center; }
 
 .pad {
   padding: 2rem 0; }
@@ -682,12 +820,16 @@ img {
 .hero-image-3 {
   background-image: url("../images/hero-image-3.jpeg"); }
 
-#About {
-  color: #4c4a4a;
-  height: 1000px;
-  background-color: #fff; }
-  #About h1 {
+#Skills, #About {
+  padding: 2em 0;
+  color: #4c4a4a; }
+  #Skills h1, #About h1 {
     font-weight: 600; }
+
+#About {
+  background-color: #f5f5f5; }
+  #About h1 {
+    margin: 0 0 0.67em 0; }
 
 .underline {
   height: 4px;
@@ -696,10 +838,24 @@ img {
   width: 115px;
   margin: auto; }
 
+.slide-left {
+  transform: translateX(-50px) scale(0.9);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; }
+
+.slide-right {
+  transform: translateX(50px) scale(0.9);
+  opacity: 0;
+  transition: transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; }
+
 .animate {
   transform: translateY(30px) scale(0.9);
   opacity: 0;
   transition: transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; }
+
+.image-me {
+  border-radius: 50%;
+  height: 250px; }
 
 @keyframes flipInX {
   from {
@@ -787,6 +943,53 @@ img {
   font-size: 1rem;
   margin-top: 10px; }
 
+#Skills {
+  height: 500px; }
+  #Skills h1 {
+    margin: 0 0 0.67em 0; }
+
+.bar-container {
+  height: 28px;
+  background-color: #ebe8e8;
+  position: relative;
+  font-size: 1em; }
+
+.bar-container:not(:first-child) {
+  margin-top: 10px; }
+
+.bar-fill {
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+  position: absolute;
+  background: linear-gradient(to left, #03a9ac, #04c2c9);
+  padding: 0;
+  transition: 1.1s 0.2s width ease-in-out;
+  visibility: hidden; }
+
+.slide {
+  animation: 1s fill-bar forwards ease; }
+
+.bar-text {
+  z-index: 2;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  padding: 3px 0 3px 5px;
+  text-align: center;
+  color: #4c4a4a;
+  font-weight: 600; }
+
+.percentage {
+  text-align: right;
+  color: #4c4a4a;
+  z-index: 2;
+  position: absolute;
+  right: 0;
+  padding: 3px 5px 3px 0px;
+  font-weight: 600; }
+
 @media only screen and (max-width: 640px) {
   .sm-show {
     display: block; }
@@ -809,17 +1012,14 @@ img {
     font-size: 1em; }
 
   .underline {
-    margin: 0;
     width: 135px; } }
 @media only screen and (min-width: 640px) {
   .sm-show {
     display: none; }
 
   .center {
-    padding: 3rem 0;
     float: none;
-    margin: auto;
-    padding: 2rem 0; }
+    margin: auto; }
     .center h1, .center h2, .center h3, .center h4 {
       text-align: center; } }
 
