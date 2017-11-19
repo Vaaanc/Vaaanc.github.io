@@ -10,7 +10,21 @@ $sublabel-fontsize:1rem;
 $text-color:#4c4a4a;
 $subtext-color:#575454;
 
-
+input[type="text"],textarea[type="text"]{
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  border: 0;
+  padding: 10px 15px;
+  background: #1E242C;
+  font-size: 12pt;
+  margin-bottom: 3px;
+  color: #fff;
+}
+textarea[type="text"]{
+  height: 250px;
+}
 //Animation
 @-webkit-keyframes fill-bar {
   0% { width: 0; }
@@ -42,6 +56,9 @@ p{
   font-size: 1rem;
   line-height: 1.75;
 }
+svg{
+  display: block;
+}
 body{
   overflow-x: hidden;
 
@@ -72,10 +89,13 @@ img {
   height: auto;
 }
 
+.site-wrapper{
+  background:white;
+}
 //===============NAV/HERO START==================
 .hero{
   height: 100vh;
-  width: 100%;
+  width: 100vw;
       overflow: hidden;
 }
 .nav-section nav{
@@ -243,6 +263,19 @@ img {
     font-size: 1.5em;
   }
 }
+.submit{
+  border: 3px solid #1E242C;
+  padding: 10px;
+  color:#1E242C;
+  font-weight: 600;
+  font-size: 1.5em;
+  transition: all  0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;
+  &:hover{
+    color: white;
+    border-color:  #04C2C9;
+    background-color: #04C2C9;
+  }
+}
 .button{
   a{
     border: 3px solid #fff;
@@ -297,7 +330,7 @@ img {
 //===============Nav/HERO END==================
 
 //SECTIONS
-#Skills,#About{
+#Skills,#About,#Skills,#Works,#Contact{
   padding: 2em 0;
   color:$text-color;
   h1{
@@ -335,6 +368,10 @@ img {
   opacity: 0;
   transition: transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s
 }
+.op{
+  opacity:0;
+  transition: opacity 1s;
+}
 .image-me{
   border-radius: 50%;
   height: 250px;
@@ -370,7 +407,7 @@ img {
 }
 .octagon {
   margin: auto;
-  opacity: 0;
+
 	width: 100px;
 	height: 100px;
 	background: #04c2c9;
@@ -440,10 +477,7 @@ img {
 
 //==============SKILLS START=================
 #Skills{
-  height: 500px; 
-  h1{
-    margin: 0 0 0.67em 0;
-  }
+  padding: 2em 0 6em 0;
 }
 .bar-container{
   height: 28px;
@@ -487,6 +521,21 @@ img {
   right: 0;
   padding: 3px 5px 3px 0px;
   font-weight: 600;
+}
+//==============Works START=================
+#Works{
+  height:500px;
+  background: black;
+  color: white;
+  .underline{
+    background: white;
+  }
+}
+
+
+//==============Contact START=================
+#Contact{
+  padding-bottom: 5em;
 }
 //Width < 640px
 @media only screen and (max-width: 640px) {

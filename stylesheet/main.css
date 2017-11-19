@@ -567,6 +567,21 @@ p {
 
   .hidden-sm {
     display: block; } }
+input[type="text"], textarea[type="text"] {
+  display: block;
+  width: 100%;
+  box-sizing: border-box;
+  outline: none;
+  border: 0;
+  padding: 10px 15px;
+  background: #1E242C;
+  font-size: 12pt;
+  margin-bottom: 3px;
+  color: #fff; }
+
+textarea[type="text"] {
+  height: 250px; }
+
 @-webkit-keyframes fill-bar {
   0% {
     width: 0; }
@@ -598,6 +613,9 @@ p {
   font-size: 1rem;
   line-height: 1.75; }
 
+svg {
+  display: block; }
+
 body {
   overflow-x: hidden;
   font-family: 'Raleway', sans-serif; }
@@ -626,9 +644,12 @@ canvas {
 img {
   height: auto; }
 
+.site-wrapper {
+  background: white; }
+
 .hero {
   height: 100vh;
-  width: 100%;
+  width: 100vw;
   overflow: hidden; }
 
 .nav-section nav {
@@ -773,6 +794,18 @@ img {
   .hero-text h4 {
     font-size: 1.5em; }
 
+.submit {
+  border: 3px solid #1E242C;
+  padding: 10px;
+  color: #1E242C;
+  font-weight: 600;
+  font-size: 1.5em;
+  transition: all 0.5s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; }
+  .submit:hover {
+    color: white;
+    border-color: #04C2C9;
+    background-color: #04C2C9; }
+
 .button a {
   border: 3px solid #fff;
   padding: 10px;
@@ -820,10 +853,10 @@ img {
 .hero-image-3 {
   background-image: url("../images/hero-image-3.jpeg"); }
 
-#Skills, #About {
+#Skills, #About, #Skills, #Works, #Contact {
   padding: 2em 0;
   color: #4c4a4a; }
-  #Skills h1, #About h1 {
+  #Skills h1, #About h1, #Skills h1, #Works h1, #Contact h1 {
     font-weight: 600; }
 
 #About {
@@ -852,6 +885,10 @@ img {
   transform: translateY(30px) scale(0.9);
   opacity: 0;
   transition: transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; }
+
+.op {
+  opacity: 0;
+  transition: opacity 1s; }
 
 .image-me {
   border-radius: 50%;
@@ -882,7 +919,6 @@ img {
     opacity: 1; } }
 .octagon {
   margin: auto;
-  opacity: 0;
   width: 100px;
   height: 100px;
   background: #04c2c9;
@@ -944,9 +980,7 @@ img {
   margin-top: 10px; }
 
 #Skills {
-  height: 500px; }
-  #Skills h1 {
-    margin: 0 0 0.67em 0; }
+  padding: 2em 0 6em 0; }
 
 .bar-container {
   height: 28px;
@@ -989,6 +1023,16 @@ img {
   right: 0;
   padding: 3px 5px 3px 0px;
   font-weight: 600; }
+
+#Works {
+  height: 500px;
+  background: black;
+  color: white; }
+  #Works .underline {
+    background: white; }
+
+#Contact {
+  padding-bottom: 5em; }
 
 @media only screen and (max-width: 640px) {
   .sm-show {

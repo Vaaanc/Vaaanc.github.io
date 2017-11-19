@@ -214,16 +214,27 @@ function onScroll(event){
       }, 150*i);
     } 
   });
-  $('.octagon').each(function(i){
-    var bottom_object = $(this).offset().top + $(this).height();
+}
+onScroll();
+$(window).scroll(startCounter);
+function startCounter() {  
+  $('.percentage').each(function (i) {
     var bottom_window = $(window).scrollTop() + $(window).height();
-    
-    var row = $(this);
-    if(bottom_window > bottom_object){
-      setTimeout(function() {
-        row.addClass('flip');
-      }, 150*i);
-    } 
-  });
+    var $this = $(this);
+    if(bottom_window > $(this).offset().top){
+        $(window).off("scroll", startCounter);
+        jQuery({ Counter: 0 }).animate({
+          Counter: $this.delay(150*i).text()
+        }, {
+
+          duration: 1000,
+          easing: 'swing',
+          step: function () {
+              $this.text(Math.ceil(this.Counter)+"%");
+          }
+      });
+    }
+});
+
 }
 $(document).on("scroll", onScroll);
