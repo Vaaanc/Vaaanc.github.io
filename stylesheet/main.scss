@@ -10,7 +10,7 @@ $sublabel-fontsize:1rem;
 $text-color:#4c4a4a;
 $subtext-color:#575454;
 
-input[type="text"],textarea[type="text"]{
+input[type="text"],textarea[type="text"],input[type="email"]{
   display: block;
   width: 100%;
   box-sizing: border-box;
@@ -354,12 +354,12 @@ img {
   
 }
 .slide-left{
-  transform: translateX(-50px) scale(0.9);
+  transform: translateX(-100px) scale(0.9);
   opacity: 0;
   transition: transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s
 }
 .slide-right{
-  transform: translateX(50px) scale(0.9);
+  transform: translateX(100px) scale(0.9);
   opacity: 0;
   transition: transform 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s, opacity 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s
 }
@@ -470,11 +470,24 @@ img {
 .sub-label{
   color:$subtext-color;
   font-size: $sublabel-fontsize;
-  margin-top:10px;
 }
-//===========MOBILE QUERY============
-
-
+.devices{
+  position: relative;
+  img:not(:first-child){
+    position: absolute;
+  }
+  img:nth-of-type(2){
+    bottom:0;
+    left: 0;
+    margin-left: -11px;
+    height: 50%;
+  }
+  img:nth-of-type(3){
+    bottom:0;
+    right: 0;
+    height: 50%;
+  }
+}
 //==============SKILLS START=================
 #Skills{
   padding: 2em 0 6em 0;
@@ -524,7 +537,6 @@ img {
 }
 //==============Works START=================
 #Works{
-  height:500px;
   background: black;
   color: white;
   .underline{
@@ -566,6 +578,15 @@ img {
   }
   .underline{
     width:135px;
+  }
+  .devices{
+    img:nth-of-type(2){
+      height: 100px;
+    }
+    img:nth-of-type(3){
+
+      height: 100px;
+    }
   }
 }
 
