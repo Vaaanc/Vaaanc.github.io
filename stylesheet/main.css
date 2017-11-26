@@ -826,7 +826,7 @@ img {
   height: 100%; }
 
 .image {
-  background-color: rgba(83, 51, 22, 0.3);
+  background-color: rgba(83, 51, 22, 0.15);
   background-blend-mode: multiply;
   overflow: hidden;
   opacity: 0;
@@ -843,6 +843,9 @@ img {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat; }
+
+.hero-image-0 {
+  background-image: url("../images/hero.png"); }
 
 .hero-image-1 {
   background-image: url("../images/hero-image-1.jpeg"); }

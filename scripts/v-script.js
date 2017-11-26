@@ -41,8 +41,8 @@ function moveBackground() {
     y += (lFollowY - y) * friction;
     translate = 'translate(' + x + 'px, ' + y + 'px) scale(1.1)';
     if(clientWidth > 768){
-    document.getElementById("hero-images-wrap").style.transform = translate;
-    }
+      document.getElementById("hero-images-wrap").style.transform = translate;
+      } 
     window.requestAnimationFrame(moveBackground);
 }
 document.getElementById("Home").addEventListener("mousemove",function(e){
@@ -55,7 +55,9 @@ document.getElementById("Home").addEventListener("mousemove",function(e){
   lFollowX = (20 * lMouseX) / 100; // 100 : 12 = lMouxeX : lFollow
   lFollowY = (10 * lMouseY) / 100;
   }
-});
+})
+
+
 moveBackground();
 //MOVING BACKGROUND END
 
