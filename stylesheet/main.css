@@ -647,20 +647,31 @@ img {
 .site-wrapper {
   background: white; }
 
+.image-body {
+  height: 250px; }
+
 .hero {
   height: 100vh;
-  width: 100vw;
   overflow: hidden; }
 
-.nav-section nav {
+#nav {
+  transition: all 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;
+  height: 92px;
   background: rgba(0, 0, 0, 0.4);
   display: block;
-  padding: 20px 0;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 9999; }
+  #nav.scroll {
+    height: 70px; }
+    #nav.scroll .logo {
+      line-height: 70px; }
+      #nav.scroll .logo .logo-img {
+        height: 50px; }
+    #nav.scroll #nav-menu {
+      line-height: 70px; }
 
 .overlay {
   overflow: hidden; }
@@ -696,7 +707,7 @@ img {
   right: 3%;
   height: 30px;
   width: 30px;
-  top: 25%;
+  top: 30%;
   cursor: pointer; }
 
 #toggle-icon span {
@@ -749,10 +760,22 @@ img {
   left: 50%; }
 
 .logo {
+  transition: all 0.75s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;
   float: left;
-  margin-left: 15px; }
+  margin-left: 15px;
+  line-height: 92px; }
+  .logo a {
+    display: inline-block; }
+  .logo img {
+    vertical-align: middle;
+    height: 70px; }
+
+.logo-img {
+  transition: all 0.75s cubic-bezier(0.6, 0.2, 0.1, 1) 0s; }
 
 #nav-menu {
+  transition: all 0.75s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;
+  line-height: 92px;
   text-align: right; }
   #nav-menu li {
     display: inline-block;
@@ -845,7 +868,7 @@ img {
   background-repeat: no-repeat; }
 
 .hero-image-0 {
-  background-image: url("../images/Hero.png"); }
+  background-image: url("../images/Hero1.png"); }
 
 .hero-image-1 {
   background-image: url("../images/hero-image-1.jpeg"); }
@@ -862,10 +885,10 @@ img {
   #Skills h1, #About h1, #Skills h1, #Works h1, #Contact h1 {
     font-weight: 600; }
 
-#About {
-  background-color: #f5f5f5; }
-  #About h1 {
-    margin: 0 0 0.67em 0; }
+#About h1 {
+  margin: 0 0 0.67em 0; }
+#About .row:not(:first-child) {
+  margin-top: 30px; }
 
 .underline {
   height: 4px;
@@ -996,6 +1019,7 @@ img {
     height: 50%; }
 
 #Skills {
+  background-color: #f5f5f5;
   padding: 2em 0 6em 0; }
 
 .bar-container {
@@ -1076,7 +1100,13 @@ img {
   .devices img:nth-of-type(2) {
     height: 100px; }
   .devices img:nth-of-type(3) {
-    height: 100px; } }
+    height: 100px; }
+
+  .nav-section nav {
+    height: 62px; }
+
+  .logo {
+    line-height: 92px; } }
 @media only screen and (min-width: 640px) {
   .sm-show {
     display: none; }

@@ -9,6 +9,7 @@ $label-fontsize:1.5rem;
 $sublabel-fontsize:1rem;
 $text-color:#4c4a4a;
 $subtext-color:#575454;
+$transition-cubic: all .75s cubic-bezier(0.6, 0.2, 0.1, 1)0s;
 
 input[type="text"],textarea[type="text"],input[type="email"]{
   display: block;
@@ -92,21 +93,36 @@ img {
 .site-wrapper{
   background:white;
 }
+.image-body{
+  height: 250px;
+}
 //===============NAV/HERO START==================
 .hero{
   height: 100vh;
-  width: 100vw;
-      overflow: hidden;
+  overflow: hidden;
 }
-.nav-section nav{
+#nav{
+  transition: all 1s cubic-bezier(0.6, 0.2, 0.1, 1) 0s;
+  height: 92px;
   background: rgba(0,0,0,.4);
   display: block;
-  padding: 20px 0;
   position: fixed;
   top: 0;
   left: 0;
   right: 0;
   z-index: 9999;
+  &.scroll{
+    height:70px;
+    .logo{
+      line-height: 70px;
+      .logo-img{
+        height: 50px;
+      }
+    }
+    #nav-menu{
+      line-height: 70px;
+    }
+  }
 }
 
 //MOBILE VIEW
@@ -148,7 +164,7 @@ img {
   right: 3%;
   height: 30px;
   width: 30px;
-  top: 25%;
+  top: 30%;
   cursor: pointer;
 }
 #toggle-icon span {
@@ -209,10 +225,24 @@ img {
 }
 
 .logo{
+  transition: $transition-cubic;
   float: left;
   margin-left: 15px;
+  line-height: 92px;
+  a{
+    display: inline-block;
+  }
+  img{
+    vertical-align: middle;
+    height: 70px
+  }
+}
+.logo-img{
+  transition: $transition-cubic;
 }
 #nav-menu{
+  transition: $transition-cubic;
+  line-height: 92px;
   text-align: right;
   li{
     display: inline-block;
@@ -319,7 +349,7 @@ img {
   background-repeat: no-repeat;
 }
 .hero-image-0{
-  background-image:url('../images/Hero.png');
+  background-image:url('../images/Hero1.png');
 }
 .hero-image-1{
   background-image:url("../images/hero-image-1.jpeg");
@@ -342,9 +372,12 @@ img {
 }
 //==============ABOUT ME START=================
 #About{
-  background-color: #f5f5f5;
+  //background-color: #f5f5f5;
   h1{
     margin: 0 0 0.67em 0;
+  }
+  .row:not(:first-child){
+    margin-top:30px;
   }
 }
 .underline{
@@ -493,6 +526,7 @@ img {
 }
 //==============SKILLS START=================
 #Skills{
+  background-color: #f5f5f5;
   padding: 2em 0 6em 0;
 }
 .bar-container{
@@ -590,6 +624,12 @@ img {
 
       height: 100px;
     }
+  }
+  .nav-section nav{
+    height: 62px;
+  }
+  .logo{
+    line-height: 92px;
   }
 }
 

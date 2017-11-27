@@ -1,6 +1,6 @@
 /// <reference path="index.d.ts" />
 
-//CAROUSEL START
+//**CAROUSEL START
 var slideIndex = 0;
 carousel();
   function carousel() {
@@ -18,14 +18,17 @@ carousel();
     x[slideIndex-1].style.opacity = "1";
     setTimeout(carousel, 8000); // Change image every 2 seconds
   }
-//CAROUSEL END
+//CAROUSEL END**/
 
-//MOVING BACKGROUND START
+
+
+
+//**MOVING BACKGROUND START
 var lFollowX = 0,
 lFollowY = 0,
 x = 0,
 y = 0,
-friction = 1 / 30;
+friction = 1 / 40;
 document.getElementsByTagName("body")[0].onresize = function() {    
   var clientWidth = document.getElementById('hero-images-wrap').offsetWidth;
   if(clientWidth <= 768){
@@ -55,14 +58,12 @@ document.getElementById("Home").addEventListener("mousemove",function(e){
   lFollowX = (20 * lMouseX) / 100; // 100 : 12 = lMouxeX : lFollow
   lFollowY = (10 * lMouseY) / 100;
   }
-})
-
-
+});
 moveBackground();
 //MOVING BACKGROUND END
 
 //SMOOTH SCROLL START
-var options = { speed: 750, easing: 'easeInQuint', offset:document.getElementById('nav').offsetHeight  };
+var options = { speed: 750, easing: 'easeInQuint', offset:70  };
 var selector;
 var scroll = new SmoothScroll(selector,options);
 
@@ -154,10 +155,7 @@ window.onload = function() {
       new TxtRotate(elements[i], JSON.parse(toRotate), period);
     }
   }
-  var css = document.createElement("style");
-  css.type = "text/css";
-  css.innerHTML = ".txt-rotate > .wrap { border-right: 0.08em solid #fff }";
-  document.body.appendChild(css);
+
 };
 //TYPEWRITER EFFECT END
 
@@ -216,6 +214,13 @@ function onScroll(event){
       }, 150*i);
     } 
   });
+
+  if (document.documentElement.scrollTop > 50) {
+    document.getElementById('nav').classList.add('scroll');
+  }
+  else{
+    document.getElementById('nav').classList.remove('scroll');
+  }
 }
 onScroll();
 $(window).scroll(startCounter);
@@ -237,6 +242,4 @@ function startCounter() {
       });
     }
 });
-
 }
-$(document).on("scroll", onScroll);
