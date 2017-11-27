@@ -20,9 +20,6 @@ carousel();
   }
 //CAROUSEL END**/
 
-
-
-
 //**MOVING BACKGROUND START
 var lFollowX = 0,
 lFollowY = 0,
