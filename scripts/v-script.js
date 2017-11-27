@@ -214,12 +214,11 @@ function onScroll(event){
       }, 150*i);
     } 
   });
-
-  if (document.documentElement.scrollTop > 50) {
-    document.getElementById('nav').classList.add('scroll');
+  if ($(window).scrollTop() > 50) {
+    $('#nav').addClass('scroll');
   }
   else{
-    document.getElementById('nav').classList.remove('scroll');
+    $('#nav').removeClass('scroll');
   }
 }
 onScroll();
