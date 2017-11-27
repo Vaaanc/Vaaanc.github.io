@@ -63,7 +63,7 @@ moveBackground();
 //MOVING BACKGROUND END
 
 //SMOOTH SCROLL START
-var options = { speed: 750, easing: 'easeInQuint', offset:70  };
+var options = { speed: 750, easing: 'easeInQuint', offset:document.getElementById('nav').scrollHeight  };
 var selector;
 var scroll = new SmoothScroll(selector,options);
 
@@ -180,7 +180,7 @@ window.onload = function() {
       }
     }
   };
-})();
+});
 //Scroll Add/Remove Class
 function onScroll(event){
   $('.animate').each(function(){
@@ -214,11 +214,12 @@ function onScroll(event){
       }, 150*i);
     } 
   });
-  if ($(window).scrollTop() > 50) {
-    $('#nav').addClass('scroll');
+
+  if (document.documentElement.scrollTop > 50) {
+    document.getElementById('nav').classList.add('scroll');
   }
   else{
-    $('#nav').removeClass('scroll');
+    document.getElementById('nav').classList.remove('scroll');
   }
 }
 onScroll();
