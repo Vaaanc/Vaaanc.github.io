@@ -20,6 +20,9 @@ carousel();
   }
 //CAROUSEL END**/
 
+
+
+
 //**MOVING BACKGROUND START
 var lFollowX = 0,
 lFollowY = 0,
@@ -60,7 +63,7 @@ moveBackground();
 //MOVING BACKGROUND END
 
 //SMOOTH SCROLL START
-var options = { speed: 750, easing: 'easeInQuint', offset:document.getElementById('nav').scrollHeight  };
+var options = { speed: 750, easing: 'easeInQuint', offset:70  };
 var selector;
 var scroll = new SmoothScroll(selector,options);
 
@@ -177,7 +180,7 @@ window.onload = function() {
       }
     }
   };
-});
+})();
 //Scroll Add/Remove Class
 function onScroll(event){
   $('.animate').each(function(){
@@ -219,7 +222,7 @@ function onScroll(event){
     document.getElementById('nav').classList.remove('scroll');
   }
 }
-onScroll();
+$(document).on("scroll", onScroll);
 $(window).scroll(startCounter);
 function startCounter() {  
   $('.percentage').each(function (i) {
