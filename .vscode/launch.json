@@ -5,10 +5,18 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "type": "node",
+            "name": "Python",
+            "type": "python",
             "request": "launch",
-            "name": "Launch Program",
-            "program": "${workspaceFolder}/Vee-Ay-Cee.github.io\\scripts\\v-script.js"
+            "stopOnEntry": true,
+            "pythonPath": "${config:python.pythonPath}",
+            "program": "${file}",
+            "cwd": "${workspaceFolder}",
+            "env": {},
+            "envFile": "${workspaceFolder}/.env",
+            "debugOptions": [
+                "RedirectOutput"
+            ]
         }
     ]
 }
